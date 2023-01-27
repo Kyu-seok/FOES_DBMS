@@ -1,11 +1,8 @@
 package com.kyu.springbackend.controllers;
 
-
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kyu.springbackend.config.SecurityConfiguration;
 import com.kyu.springbackend.model.Staff;
-import com.kyu.springbackend.repositories.StaffRepository;
 import com.kyu.springbackend.services.staff.StaffService;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
@@ -23,14 +20,12 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 
+
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;

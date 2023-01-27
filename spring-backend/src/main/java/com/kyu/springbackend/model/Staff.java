@@ -13,22 +13,21 @@ public class Staff {
     @Id
     private String id;
 
+    private String title;
     private String firstName;
     private String lastName;
-    private String title;
-    private String miriId;
-    private String perthId;
-    private Date reportDutyDate;
+    private String staffId;
+    private String email;
     private String department;
     private String position;
     private String roomNo;
     private String extNo;
     private String status;
-    private String email;
     private String appointmentLevel;
+    private String reportDutyDate;
     private String photocopyId;
     private String pigeonboxNo;
-    private Date resignedDate;
+    private String resignedDate;
     private String remark;
 
     public void update(Staff obj) {
@@ -36,8 +35,7 @@ public class Staff {
         this.firstName = obj.getFirstName();
         this.lastName = obj.getLastName();
         this.title = obj.getTitle();
-        this.miriId = obj.getMiriId();
-        this.perthId = obj.getPerthId();
+        this.staffId = obj.getStaffId();
         this.reportDutyDate = obj.getReportDutyDate();
         this.department = obj.getDepartment();
         this.position = obj.getPosition();

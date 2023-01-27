@@ -6,10 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -22,14 +20,14 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class StaffServiceImplTest {
 
-    StaffServiceImpl staffService;
+    StaffServiceImpl service;
 
     @Mock
-    StaffRepository staffRepository;
+    StaffRepository repository;
 
     @BeforeEach
     void setUp() {
-        staffService = new StaffServiceImpl(staffRepository);
+        service = new StaffServiceImpl(repository);
     }
 
     @Test
@@ -42,12 +40,12 @@ class StaffServiceImplTest {
         staffs.add(staff1);
         staffs.add(staff2);
 
-        when(staffRepository.findAll()).thenReturn(staffs);
-        List<Staff> returnedStaffs = staffService.findAll();
+        when(repository.findAll()).thenReturn(staffs);
+        List<Staff> returnedStaffs = service.findAll();
 
         assertEquals(staffs, returnedStaffs);
-        verify(staffRepository, times(1)).findAll();
-        verify(staffRepository, never()).findById(anyString());
+        verify(repository, times(1)).findAll();
+        verify(repository, never()).findById(anyString());
 
     }
 
@@ -57,12 +55,12 @@ class StaffServiceImplTest {
         staff.setId("1");
         Optional<Staff> staffOptional = Optional.of(staff);
 
-        when(staffRepository.findById(anyString())).thenReturn(staffOptional);
-        Staff staffReturned = staffService.findById("1");
+        when(repository.findById(anyString())).thenReturn(staffOptional);
+        Staff staffReturned = service.findById("1");
 
         assertEquals(staffOptional.get(), staffReturned);
-        verify(staffRepository, times(1)).findById(anyString());
-        verify(staffRepository, never()).findAll();
+        verify(repository, times(1)).findById(anyString());
+        verify(repository, never()).findAll();
     }
 
     @Test
@@ -70,11 +68,11 @@ class StaffServiceImplTest {
         Staff staff = new Staff();
         staff.setId("1");
 
-        when(staffRepository.save(any())).thenReturn(staff);
-        Staff savedStaff = staffService.save(staff);
+        when(repository.save(any())).thenReturn(staff);
+        Staff savedStaff = service.save(staff);
 
         assertEquals(staff, savedStaff);
-        verify(staffRepository, times(1)).save(any());
+        verify(repository, times(1)).save(any());
     }
 
     @Test
@@ -88,13 +86,13 @@ class StaffServiceImplTest {
         newUpdateStaff.setId("1");
         newUpdateStaff.setFirstName("bob");
 
-        when(staffRepository.findById(anyString())).thenReturn(staffOptional);
-        when(staffRepository.save(any())).thenReturn(newUpdateStaff);
-        Staff returnedStaff = staffService.update(staff.getId(), newUpdateStaff);
+        when(repository.findById(anyString())).thenReturn(staffOptional);
+        when(repository.save(any())).thenReturn(newUpdateStaff);
+        Staff returnedStaff = service.update(staff.getId(), newUpdateStaff);
 
         assertEquals(newUpdateStaff, returnedStaff);
-        verify(staffRepository, times(1)).findById(anyString());
-        verify(staffRepository, times(1)).save(any());
+        verify(repository, times(1)).findById(anyString());
+        verify(repository, times(1)).save(any());
     }
 
     @Test
@@ -103,21 +101,21 @@ class StaffServiceImplTest {
         newUpdateStaff.setId("1");
         newUpdateStaff.setFirstName("bob");
 
-        when(staffRepository.findById(anyString())).thenReturn(Optional.empty());
-        when(staffRepository.save(any())).thenReturn(newUpdateStaff);
-        Staff returnedStaff = staffService.update(newUpdateStaff.getId(), newUpdateStaff);
+        when(repository.findById(anyString())).thenReturn(Optional.empty());
+        when(repository.save(any())).thenReturn(newUpdateStaff);
+        Staff returnedStaff = service.update(newUpdateStaff.getId(), newUpdateStaff);
 
         assertEquals(newUpdateStaff, returnedStaff);
-        verify(staffRepository, times(1)).findById(anyString());
-        verify(staffRepository, times(1)).save(any());
+        verify(repository, times(1)).findById(anyString());
+        verify(repository, times(1)).save(any());
     }
 
     @Test
     void deleteById() {
         Staff staff = new Staff();
         staff.setId("1");
-        staffService.deleteById(staff.getId());
+        service.deleteById(staff.getId());
 
-        verify(staffRepository, times(1)).deleteById(anyString());
+        verify(repository, times(1)).deleteById(anyString());
     }
 }
