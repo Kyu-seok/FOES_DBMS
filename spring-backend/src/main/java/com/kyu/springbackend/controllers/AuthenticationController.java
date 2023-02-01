@@ -1,6 +1,7 @@
 package com.kyu.springbackend.controllers;
 
 import com.kyu.springbackend.config.JwtTokenHelper;
+import com.kyu.springbackend.model.user.Authority;
 import com.kyu.springbackend.model.user.User;
 import com.kyu.springbackend.requests.AuthenticationRequest;
 import com.kyu.springbackend.responds.LoginResponse;
@@ -9,12 +10,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.security.spec.InvalidKeySpecException;
+import java.util.Collection;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -42,8 +46,22 @@ public class AuthenticationController {
         User user = (User) authentication.getPrincipal();
         String jwtToken = jwtTokenHelper.generateToken(user.getUsername());
 
+        long epoch = System.currentTimeMillis();
+
+        Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
+        boolean isAdmin = false;
+
+        for (GrantedAuthority authority : authorities) {
+            if ("ADMIN".equals(authority.getAuthority())) {
+                isAdmin = true;
+                break;
+            }
+        }
+
         LoginResponse response = new LoginResponse();
         response.setToken(jwtToken);
+        response.setExp((epoch / 1000) + 3600);
+        response.setAdmin(isAdmin);
 
         return ResponseEntity.ok(response);
     }
