@@ -37,9 +37,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // In-memory Auth
-        // auth.inMemoryAuthentication().withUser("kyu").password(passwordEncoder().encode("test@123")).authorities("USER, ADMIN");
-
         // Database Auth
         auth.userDetailsService(userService).passwordEncoder((passwordEncoder()));
 
@@ -56,12 +53,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().exceptionHandling()
                 .authenticationEntryPoint(authenticationEntryPoint).and()
-                // .authorizeRequests((request) -> request.antMatchers("/h2-console/**", "/api/auth/login").permitAll()
-                //         .antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated())
+                .authorizeRequests((request) -> request.antMatchers("/api/auth/login", "/api/reset").permitAll()
+                        .antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated())
 
                 // Allow all
-                .authorizeRequests((request) -> request.antMatchers("/h2-console/**", "/api/**").permitAll()
-                        .antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated())
+                // .authorizeRequests((request) -> request.antMatchers("/h2-console/**", "/api/**").permitAll()
+                //         .antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated())
 
                 .addFilterBefore(new JWTAuthenticationFilter(userService, jwtTokenHelper),
                         UsernamePasswordAuthenticationFilter.class);
@@ -69,4 +66,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable().cors().and().headers().frameOptions().disable();
 
     }
+
 }
