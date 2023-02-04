@@ -1,0 +1,15 @@
+.dataTable {
+  width: 100%;
+
+  .cellAction {
+    display: flex;
+
+    .viewButton{
+      cursor: pointer;
+    }
+
+    .deleteButton {
+      cursor: pointer;
+    }
+  }
+}

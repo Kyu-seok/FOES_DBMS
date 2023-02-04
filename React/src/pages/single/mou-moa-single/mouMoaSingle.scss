@@ -1,0 +1,36 @@
+.single {
+    display: flex;
+
+    .homeContainer {
+        flex: 6;
+
+        .title {
+            color: gray;
+            font-size: 24px;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .button-section {
+          display: flex;
+          justify-content: center;
+
+            .add-new-btn {
+                width: 150px;
+                padding: 10px;
+                border: none;
+                background-color: teal;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+                margin-top: 10px;
+                border-radius: 5px;
+            }
+        }
+    }
+}

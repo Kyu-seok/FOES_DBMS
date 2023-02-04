@@ -1,0 +1,40 @@
+.tableContainer {
+
+  display: flex;
+  flex-flow: row wrap;
+
+  .tableTitle {
+    width: 50%;
+    font-size: 24px;
+    color: gray;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .tableAction {
+    display: flex;
+    width: 50%;
+    flex-direction: row-reverse;
+
+    Button {
+      margin: 5px;
+    }
+
+    .newButton {
+      display: flex;
+      text-decoration: none;
+      justify-items: center;
+      align-items: center;
+
+      .buttonText {
+        display: flex;
+        color: white;
+        align-self: center;
+        justify-self: center;
+      }
+    } 
+  }
+
+}

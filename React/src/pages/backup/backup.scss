@@ -1,0 +1,36 @@
+.backup {
+  display: flex;
+
+  .homeContainer {
+    flex: 6;
+
+    .backupContent {
+      display: flex;
+      justify-content: center;
+
+      .MuiPaper-root {
+        width: 50%;
+        margin: 20px 20px 20px 20px;
+        height: 60vh;
+
+        .contentTitle {
+          text-align: center;
+          color: #808080;
+          font-size: 24px;
+          padding: 20px;
+        }
+
+        .contentItem {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 60%;
+
+          Button {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

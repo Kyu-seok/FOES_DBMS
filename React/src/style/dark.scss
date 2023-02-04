@@ -1,0 +1,96 @@
+.app.dark {
+  background-color: #111;
+  color: rgb(156, 156, 156);
+
+  .tableContainer {
+    .newButton {
+      color: #999;
+    }
+
+    .MuiDataGrid-root {
+      color: #999;
+
+      .MuiCheckbox-root {
+        color: #999;
+      }
+    }
+  }
+
+  .navbar {
+    color: #999;
+    border-color: #333;
+
+    .search {
+      border-color: gray;
+    }
+  }
+
+  .sidebar {
+    background-color: #111;
+    border-color: #333;
+
+    .top {
+      .logo {
+        color: #999;
+      }
+    }
+    hr {
+      border-color: #333;
+    }
+
+    ul {
+      li {
+        &:hover {
+          background-color: #333;
+        }
+
+        .icon {
+          color: #999;
+        }
+      }
+    }
+  }
+
+  .dataTable {
+    color: #999;
+
+    p: {
+      color: #999;
+    }
+
+    .MuiToolbar-root {
+      color: #999;
+
+      .MuiButtonBase-root {
+        color: #999;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #222; 
+      }
+    }
+  }
+
+  *::-webkit-scrollbar {
+    width: auto;               /* width of the entire scrollbar */
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: #333;        /* color of the tracking area */
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #999;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid #333;  /* creates padding around scroll thumb */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #BBB; 
+  }
+
+  input {
+    background-color: transparent;
+  }
+}
+

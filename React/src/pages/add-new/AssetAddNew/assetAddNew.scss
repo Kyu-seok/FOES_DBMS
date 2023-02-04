@@ -1,0 +1,85 @@
+.new {
+  width: 100%;
+  display: flex;
+
+  .newContainer {
+    flex: 6;
+    // -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    // box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    // padding: 10px;
+    // margin: 20px;
+
+    .title {
+      color: gray;
+      font-size: 24px;
+      padding: 10px;
+      margin: 20px;
+    }
+
+    .top,
+    .bottom {
+      -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      padding: 10px;
+      padding-top: 40px;
+      margin: 20px;
+      display: flex;
+
+      h1 {
+        color: gray;
+        font-size: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px 100px;
+        justify-content: center;
+
+        .formInput {
+          width: 40%;
+
+          label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .icon {
+              cursor: pointer;
+            }
+          }
+
+          input, select {
+            width: 100%;
+            padding: 5px;
+            border: none;
+            border-bottom: 1px solid gray;
+          }
+        }
+
+        button {
+          width: 150px;
+          padding: 10px;
+          border: none;
+          background-color: teal;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .addColumnBox {
+      -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      padding: 10px;
+      text-align: center;
+      margin: 40px 20px 0px 20px ;
+
+      .title {
+        margin: 0px 20px;
+      }
+    }
+  }
+}

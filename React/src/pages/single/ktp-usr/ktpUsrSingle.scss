@@ -1,0 +1,19 @@
+.single {
+  display: flex;
+
+  .homeContainer {
+    flex: 6;
+
+    .title {
+      color: gray;
+      font-size: 24px;
+      padding: 10px;
+      margin: 20px;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
