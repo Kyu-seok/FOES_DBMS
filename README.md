@@ -133,7 +133,7 @@ Document Based NoSQL인 MongoDB를 이용하여 데이터베이스를 구축하�
 
 위 어플리케이션에서는 각 테이블간의 관계가 없기 때문에 NoSQL이 더 적합하다고 판단하였습니다.
 
-프로젝트 완성후 개인적으로 이 프로젝트에서 데이터베이스는 Cassandra DB나 HBase같은 컴럼형 NoSQL이 더 적합하다는것을 깨달았고 기회가 된다면 위 데이터베이스로 업데이트 할 계획입니다.
+프로젝트 완성 후 개인적으로 컴럼형 NoSQL인 Cassandra DB 또는 HBase가 더 적합하다는 것을 깨달았기 때문에, 기회가 된다면 이 데이터베이스를 업데이트할 계획입니다.
 
 ### JUnit과 Mockito를 이용한 테스트코드
 
@@ -172,9 +172,9 @@ Technical Investigation Document:       [link](./Resources/documents/TIS.pdf)
 
 Technical Investigation Summary:        [link](./Resources/documents/TIS_Summary.pdf)
 
-Software Requirements Speicification:   [link](./Resources/documents/SRS.pdf)
+Software Requirements Specification:    [link](./Resources/documents/SRS.pdf)
 
-Software Architecture Speicification:   [link](./Resources/documents/SAS.pdf)
+Software Architecture Specification:    [link](./Resources/documents/SAS.pdf)
 
 ## 프로젝트를 통해 느낀점
 
